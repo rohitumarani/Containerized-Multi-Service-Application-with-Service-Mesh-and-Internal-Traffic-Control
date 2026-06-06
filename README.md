@@ -1,7 +1,7 @@
 # Containerized Multi-Service Application with Service Mesh and Internal Traffic Control
 
 # Architecture Digram :
-![](/image/Microservices%20architecture%20with%20Istio%20service%20mesh%20(1).png)
+![](./images/Microservices%20architecture%20with%20Istio%20service%20mesh%20(1).png)
 
 ## Project Overview
 You joined as a Platform Engineer in a product company migrating from a monolithic architecture to microservices. Developers reported issues such as:
@@ -50,7 +50,7 @@ kubectl get pods -A
 
 Screenshot: Cluster & Pods status
 
-![](/image/Screenshot%20(224)%20-%20Copy.png)
+![](./images/Screenshot%20(224)%20-%20Copy.png)
 
 
 ### 2. Containerization
@@ -76,9 +76,10 @@ docker push <dockerhub-username>/order-service:v1
 docker push <dockerhub-username>/payment-service:v1
 ```
 Screenshot: Docker build & push logs
-![](/image/Screenshot%20(254).png)
 
-#### 3. Deploy Microservices to Kubernetes
+![](./images/Screenshot%20(254).png)
+
+### 3. Deploy Microservices to Kubernetes
 
 Applied deployment and service YAML files:
 ```
@@ -92,9 +93,10 @@ kubectl get pods
 kubectl get svc
 ```
 Screenshot: Microservices running
-![](/image/Screenshot%20(235)%20-%20Copy.png)
 
-#### 4. Service Mesh Installation (Istio)
+![](./images/Screenshot%20(235)%20-%20Copy.png)
+
+### 4. Service Mesh Installation (Istio)
 
 Installed Istio and enabled sidecar injection:
 ```
@@ -106,9 +108,10 @@ Verified Istio pods:
 kubectl get pods -n istio-system
 ```
 Screenshot: Istio system pods
-![](/image/Screenshot%20(237)%20-%20Copy.png)
 
-#### 5. Traffic Management
+![](./images/Screenshot%20(237)%20-%20Copy.png)
+
+### 5. Traffic Management
 
 Created DestinationRule and VirtualService for order-service:
 ```
@@ -157,9 +160,9 @@ spec:
       retryOn: gateway-error,connect-failure,refused-stream
 ```
 Screenshot: Traffic split in Kiali
-![](/image/Screenshot%20(247)%20-%20Copy.png)
+![](./images/Screenshot%20(247)%20-%20Copy.png)
 
-#### 6. Observability
+### 6. Observability
 
 Enabled Kiali, Prometheus, and Grafana for monitoring.
 
@@ -169,7 +172,7 @@ kubectl port-forward svc/kiali -n istio-system 20001:20001 --address 0.0.0.0
 ```
 Screenshot: Kiali Dashboard showing traffic and services
 
-![](/image/Screenshot%20(244)%20-%20Copy.png)
+![](./images/Screenshot%20(244)%20-%20Copy.png)
 
 Observed metrics such as:
 ```
@@ -181,7 +184,7 @@ Service health
 ```
 
 Screenshot: Observability metrics
-![](/image/Screenshot%20(247)%20-%20Copy.png)
+![](./images/Screenshot%20(247)%20-%20Copy.png)
 
 ---
 
