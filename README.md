@@ -1,6 +1,6 @@
 # Containerized Multi-Service Application with Service Mesh and Internal Traffic Control
 
-# Architecture Digram :
+## Architecture Digram :
 ![](./images/Microservices%20architecture%20with%20Istio%20service%20mesh%20(1).png)
 
 ## Project Overview
